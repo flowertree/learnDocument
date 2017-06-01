@@ -1,0 +1,184 @@
+sass学习内容整理
+
+sass  和scss 的区别：
+sass 的语法格式是 书写的过程中不加{}和分号：
+例如：// 文件后缀名为sass的语法
+body 
+   background:#eee
+   font-size:12px
+p
+   background:#0982c1
+
+//文件名为scss的语法
+body{
+   background:#eee;
+   font-size:12px;	
+}
+
+sass 变量
+
+sass 变量必须是以$开头的，后面紧跟变量名，而变量值和变量名之间就需要使用冒号（：）分隔开就像css 属性设置一样，如果值后面加上!default 则表示是默认值；
+
+普通的变量 语法格式
+例如：$fontSize:12px; 这样定义好后，可以在全局范围内使用的
+
+特殊变量
+一般我们定义的变量都为属性值，可以直接使用的，但是，如果变量作为属性或在某些特殊情况下等则必须要以#{$variabes}形式使用
+
+例如：
+//应用于class 和属性
+
+$borderDirection:       top !default; 
+$baseFontSize:          12px !default;
+$baseLineHeight:        1.5 !default;
+
+//应用于class和属性
+.border-#{$borderDirection}{
+  border-#{$borderDirection}:1px solid #ccc;
+}
+//应用于复杂的属性值
+body{
+    font:#{$baseFontSize}/#{$baseLineHeight};
+}
+
+
+多值变量
+定义  
+$heading: (h1: 2em, h2: 1.5em, h3: 1.2em);
+这个 $heading 的元素可以不是同一种
+这就类似于  js 里面的map 
+map  数据是以 key 和value 成对出现的，其中value,又可以是list
+使用
+//sass style
+//-------------------------------
+$headings: (h1: 2em, h2: 1.5em, h3: 1.2em);
+@each $header, $size in $headings {
+  #{$header} {
+    font-size: $size;
+  }
+}
+
+//css style
+//-------------------------------
+h1 {
+  font-size: 2em; 
+}
+h2 {
+  font-size: 1.5em; 
+}
+h3 {
+  font-size: 1.2em; 
+
+
+
+嵌套
+sass 的嵌套包括两种：
+·选择器嵌套（通常所说的嵌套就是这种）
+·属性的嵌套
+
+
+
+//sass style  （选择器嵌套）
+//-------------------------------
+#top_nav{
+  line-height: 40px;
+  text-transform: capitalize;
+  background-color:#333;
+  li{
+    float:left;
+  }
+  a{
+    display: block;
+    padding: 0 10px;
+    color: #fff;
+
+    &:hover{
+      color:#ddd;
+    }
+  }
+}
+
+//css style
+//-------------------------------
+#top_nav{
+  line-height: 40px;
+  text-transform: capitalize;
+  background-color:#333;
+}  
+#top_nav li{
+  float:left;
+}
+#top_nav a{
+  display: block;
+  padding: 0 10px;
+  color: #fff;
+}
+#top_nav a:hover{
+  color:#ddd;
+}
+
+
+
+属性嵌套
+所谓属性嵌套指的是有些属性拥有同一个开始单词，如border-width，border-color都是以border开头。拿个官网的实例看下：
+//sass style
+//-------------------------------
+.fakeshadow {
+  border: {
+    style: solid;
+    left: {
+      width: 4px;
+      color: #888;
+    }
+    right: {
+      width: 2px;
+      color: #ccc;
+    }
+  }
+}
+
+//css style
+//-------------------------------
+.fakeshadow {
+  border-style: solid;
+  border-left-width: 4px;
+  border-left-color: #888;
+  border-right-width: 2px;
+  border-right-color: #ccc; 
+}
+
+
+
+
+
+
+
+
+
+/*    "babel-plugin-transform-runtime": "^6.22.0",
+    "babel-preset-env": "^1.3.2",
+    "babel-preset-stage-2": "^6.22.0",
+    "babel-register": "^6.22.0",*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+}

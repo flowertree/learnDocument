@@ -1,0 +1,28 @@
+webpack 学习笔记
+内容摘要：
+·webpack 是什么？为啥要使用它？
+·webpack 的起步
+·webpack 和Grunt 以及Gulp相比有什么特性？
+
+webpack 可以被称作为模块打包机
+它要做的事情是，分析你的项目结构，找到javascrpt模块，以及一些浏览器不能直接运行的拓展语言（scss ,TypeScript 等）并将其打包为合适的格式，以供浏览器使用。
+
+webpack 与Grunt 以及Gulp 相比有什么特性
+webpack 和这两者并没有太多的可比性，Gulp 和Grunt是一种能够优化前端的开发流程的工具，而webpack是一种模块化的解决方案，不过webpack 的优点是使得webpack 可以替代Grunt/Glup 类的工具。
+
+Grunt 和Gulp 的工作方式是：在一个配置文件中，指明对某些文件进行类似的编译，组合，压缩等任务的具体步骤，这个工具以后可以自动替你完成这些任务。
+
+webpack 的工作方式是：把你的项目当做一个整体，通过一个给定的主文件（如：index.js），webpack 将从这个文件开始找到你的项目的所有依赖文件，使用loaders 处理他们，最后打包成为一个浏览器可以识别的JavaScript文件。
+
+如果实在是要把二者进行对比， 那么就是Webpack 的处理速度更快更直接，能够打包更多不同类型的文件。
+
+webpack的安装
+
+webpack 可以使用npm安装
+·新建一个空的文件夹练习，文件名不能出现大写字母
+·执行以下命令即可安装完成
+·//全局安装 npm install -g webpack 
+·//安装到你的项目目录 npm install --save-dev webpack
+
+正式使用webpack前的准备
+·在上述所创建的文件中准备创建 一个 package.json 文件，这是一个标准的npm说明文件，里面记录了丰富的信息，包括当前项目的依赖模块，自定义的脚本任务等等，在终端中使用 npm init 命令可以自动创建这个package.json文件
