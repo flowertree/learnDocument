@@ -8,19 +8,16 @@ javascript 中函数的调用有以下几种方式：
  2. 作为函数的调用
  3. 作为构造函数的调用
  4. apply 和 call 的使用
-
-
 ----------
-
-
 例子：
-
-
 ----------
-
-
 **作为对象方法的调用**
 在javascript 中，函数也是对象，因此函数可以作为一个对象的属性，此时该函数被称为对象的方法。在使用这种调用方式时，this 被自然绑定到该对象中
+/**
+* nth element in the fibonacci series.
+* @param n >= 0
+* @return the nth element, >= 0.
+*/
 var perSon={
   name:'LiLei',
   age:'22',
@@ -73,11 +70,24 @@ y; //==>1
 
 
 **作为构造函数的调用**
+
+
+----------
+
+
 JavaScript 支持面向对象式编程，与主流的面向对象式编程语言不同，JavaScript 并没有类（class）的概念，而是使用基于原型（prototype）的继承方式。相应的，JavaScript 中的构造函数也很特殊，如果不使用 new 调用，则和普通函数一样。作为又一项约定俗成的准则，**构造函数以大写字母开头**，提醒调用者使用正确的方式调用。如果调用正确，this 绑定到新创建的对象上。
+
+
+----------
+
+
 function Person(name,age){
  this.name=name;
  this.age=age;
 }
+
+
+----------
 
 
 ----------
